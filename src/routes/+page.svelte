@@ -1,3 +1,4 @@
-<h1>Welcome to your library project</h1>
-<p>Create your package using @sveltejs/package and preview/showcase your work with SvelteKit</p>
-<p>Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation</p>
+<div class="typeset typeset-docs max-w-[42em] mx-auto my-10">
+	<h1>Hello</h1>
+	<p>This is a simple paragraph.</p>
+</div>

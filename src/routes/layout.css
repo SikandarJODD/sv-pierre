@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+@import './typeset.css';
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/figtree';
+@import '@fontsource-variable/jetbrains-mono';
+
+:root {
+	--font-inter: 'Inter Variable', sans-serif;
+	--font-figtree: 'Figtree Variable', sans-serif;
+	--font-jetbrains-mono: 'JetBrains Mono Variable', monospace;
+}
+
+.typeset-docs {
+	--typeset-font-body: var(--font-inter);
+	--typeset-font-heading: var(--font-figtree);
+	--typeset-font-mono: var(--font-jetbrains-mono);
+	--typeset-size: 15px;
+	--typeset-leading: 1.75;
+	--typeset-flow: 1.25em;
+}
