@@ -1,4 +1,4 @@
-<div class="typeset typeset-docs max-w-[42em] mx-auto my-10">
-	<h1>Hello</h1>
+<div class="typeset typeset-docs mx-auto my-10 max-w-[42em]">
+	<h1>Hello Pogo</h1>
 	<p>This is a simple paragraph.</p>
 </div>
