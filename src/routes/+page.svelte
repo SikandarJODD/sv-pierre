@@ -5,6 +5,8 @@
 	import markdownCodeExampleCode from '#lib/components/examples/markdown-code-example.svelte?raw';
 	import MarkdownExample from '#lib/components/examples/markdown-example.svelte';
 	import markdownExampleCode from '#lib/components/examples/markdown-example.svelte?raw';
+	import StreamingCodeExample from '#lib/components/examples/streaming-code-example.svelte';
+	import streamingCodeExampleCode from '#lib/components/examples/streaming-code-example.svelte?raw';
 	import { CodeFrame } from '#lib/components/ui/code/index.js';
 	import { FaviconLink } from '#lib/components/ui/favicon-link/index.js';
 	// import { Kbd } from '#lib/components/ui/kbd/index.js';
@@ -183,6 +185,25 @@ ${'</' + 'script>'}
 				isCentered={false}
 			>
 				<AiChatExample />
+			</PreviewComponent>
+		</div>
+
+		<h3>Streaming Markdown with code</h3>
+		<p>
+			Combine streaming, incomplete Markdown parsing, and light/dark syntax highlighting in one
+			response.
+		</p>
+		<div data-not-typeset>
+			<PreviewComponent
+				code={{
+					filename: 'streaming-code-example.svelte',
+					filecode: streamingCodeExampleCode,
+					lang: 'svelte'
+				}}
+				showRetry={false}
+				isCentered={false}
+			>
+				<StreamingCodeExample />
 			</PreviewComponent>
 		</div>
 
