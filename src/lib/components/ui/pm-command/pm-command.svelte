@@ -72,7 +72,7 @@
 					{#each agents as pm (pm)}
 						<Tabs.Trigger
 							value={pm}
-							class="h-7 cursor-pointer border-none font-mono text-sm font-light subpixel-antialiased"
+							class="h-7 cursor-pointer border-none font-mono text-sm font-light shadow-none! data-active:bg-secondary"
 						>
 							{pm}
 						</Tabs.Trigger>
@@ -88,7 +88,7 @@
 							title={componentName}
 							{...props}
 							value={commandText}
-							class="[&_svg]:size-3!"
+							class="[&_svg]:size-3.5!"
 						/>
 					{/snippet}
 				</Tooltip.Trigger>

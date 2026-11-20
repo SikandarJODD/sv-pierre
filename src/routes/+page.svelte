@@ -5,12 +5,11 @@
 	import markdownCodeExampleCode from '#lib/components/examples/markdown-code-example.svelte?raw';
 	import MarkdownExample from '#lib/components/examples/markdown-example.svelte';
 	import markdownExampleCode from '#lib/components/examples/markdown-example.svelte?raw';
-	import * as CodeBlock from '#lib/components/ui/code-block/index.js';
+	import { CodeFrame } from '#lib/components/ui/code/index.js';
 	import { FaviconLink } from '#lib/components/ui/favicon-link/index.js';
 	// import { Kbd } from '#lib/components/ui/kbd/index.js';
 	import { PMCommand } from '#lib/components/ui/pm-command/index.js';
 	import { PreviewComponent } from '#lib/components/ui/preview-component/index.js';
-	import { useHighlightedCode } from '#lib/hooks/use-highlighted-code.svelte.js';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 
 	const title = 'Pierre Words for Svelte';
@@ -23,11 +22,6 @@
 ${'</' + 'script>'}
 
 <Markdown source="# Hello, **Svelte**" />`;
-
-	const usageLines = useHighlightedCode(
-		() => usageCode,
-		() => 'svelte'
-	);
 </script>
 
 <MetaTags
@@ -125,19 +119,16 @@ ${'</' + 'script>'}
 
 	<section aria-labelledby="usage">
 		<h2 id="usage">Usage</h2>
-		<CodeBlock.Root class="mt-4">
-			<CodeBlock.Header>
-				<CodeBlock.Title>Svelte</CodeBlock.Title>
-				<CodeBlock.Actions>
-					<CodeBlock.CopyButton value={usageCode} />
-				</CodeBlock.Actions>
-			</CodeBlock.Header>
-			<CodeBlock.Content>
-				{#each usageLines.current as line, index (index)}
-					<CodeBlock.Line code={line} />
-				{/each}
-			</CodeBlock.Content>
-		</CodeBlock.Root>
+		<div class="mt-4">
+			<CodeFrame
+				code={{
+					filename: 'code.svelte',
+					filecode: usageCode,
+					lang: 'svelte',
+					hideLines: true
+				}}
+			/>
+		</div>
 	</section>
 
 	<section aria-labelledby="examples">
@@ -235,6 +226,7 @@ ${'</' + 'script>'}
 				<FaviconLink
 					class="mx-0 no-underline hover:no-underline"
 					href="https://www.npmjs.com/package/@sv-pierre/words"
+					faviconSrc="https://www.google.com/s2/favicons?domain=npmjs.com&sz=64"
 				>
 					npm
 				</FaviconLink>
