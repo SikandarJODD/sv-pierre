@@ -9,9 +9,6 @@ The wrapper now supports **streaming Markdown**, task lists, and footnotes.
 - [ ] Add the next example`;
 </script>
 
-<div
-	data-not-typeset
-	class="mt-4 overflow-hidden rounded-lg border border-input bg-card p-4 sm:p-5"
->
+<div class="w-full overflow-hidden">
 	<Markdown {source} />
 </div>

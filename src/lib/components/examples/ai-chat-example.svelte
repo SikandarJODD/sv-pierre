@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onDestroy } from 'svelte';
 	import { Markdown } from '#lib/pierre/words/index.js';
+	import { Button } from '../ui/button';
 
 	const response = `Svelte updates the page when reactive state changes.
 
@@ -34,25 +35,15 @@ Use \`$state\` for local state and read it directly in your markup.`;
 	});
 </script>
 
-<div data-not-typeset class="mt-4 overflow-hidden rounded-lg border border-input bg-card">
-	<div class="border-b border-border bg-muted/40 px-4 py-3 sm:px-5">
-		<p class="text-xs font-medium text-muted-foreground">You</p>
-		<p class="mt-1 text-sm text-foreground">How does reactivity work in Svelte?</p>
-	</div>
-
-	<div class="min-h-32 px-4 py-4 sm:px-5" aria-live="polite">
-		<p class="mb-2 text-xs font-medium text-muted-foreground">Assistant</p>
-		<Markdown {source} {streaming} caret="circle" />
-	</div>
-
-	<div class="flex justify-end border-t border-border px-3 py-2">
-		<button
-			type="button"
-			onclick={replay}
-			disabled={streaming}
-			class="cursor-pointer rounded-md border border-border bg-background px-2.5 py-1 text-xs font-medium text-foreground transition-colors hover:bg-muted disabled:cursor-default disabled:opacity-50"
-		>
-			{streaming ? 'Writing…' : 'Replay'}
-		</button>
-	</div>
+<div class="w-full overflow-hidden">
+	<Button
+		type="button"
+		variant="secondary"
+		class="rounded-full px-4"
+		onclick={replay}
+		disabled={streaming}
+	>
+		{streaming ? 'Writing…' : 'Replay'}
+	</Button>
+	<Markdown {source} {streaming} />
 </div>

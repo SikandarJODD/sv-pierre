@@ -1,11 +1,15 @@
 <script lang="ts">
 	import AiChatExample from '#lib/components/examples/ai-chat-example.svelte';
+	import aiChatExampleCode from '#lib/components/examples/ai-chat-example.svelte?raw';
 	import MarkdownCodeExample from '#lib/components/examples/markdown-code-example.svelte';
+	import markdownCodeExampleCode from '#lib/components/examples/markdown-code-example.svelte?raw';
 	import MarkdownExample from '#lib/components/examples/markdown-example.svelte';
+	import markdownExampleCode from '#lib/components/examples/markdown-example.svelte?raw';
 	import * as CodeBlock from '#lib/components/ui/code-block/index.js';
 	import { FaviconLink } from '#lib/components/ui/favicon-link/index.js';
 	// import { Kbd } from '#lib/components/ui/kbd/index.js';
 	import { PMCommand } from '#lib/components/ui/pm-command/index.js';
+	import { PreviewComponent } from '#lib/components/ui/preview-component/index.js';
 	import { useHighlightedCode } from '#lib/hooks/use-highlighted-code.svelte.js';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
 
@@ -141,18 +145,55 @@ ${'</' + 'script>'}
 
 		<h3>Markdown text</h3>
 		<p>Pass a Markdown string to <code>source</code> and render it as HTML.</p>
-		<MarkdownExample />
+		<div data-not-typeset>
+			<PreviewComponent
+				code={{
+					filename: 'markdown-example.svelte',
+					filecode: markdownExampleCode,
+					lang: 'svelte'
+				}}
+				showRetry={false}
+				isCentered={false}
+			>
+				<MarkdownExample />
+			</PreviewComponent>
+		</div>
 
 		<h3>Markdown with code</h3>
 		<p>Add the Pierre Highlights plugin to render fenced code blocks with light and dark themes.</p>
-		<MarkdownCodeExample />
+		<div data-not-typeset>
+			<PreviewComponent
+				code={{
+					filename: 'markdown-code-example.svelte',
+					filecode: markdownCodeExampleCode,
+					lang: 'svelte'
+				}}
+				showRetry={false}
+				isCentered={false}
+			>
+				<MarkdownCodeExample />
+			</PreviewComponent>
+		</div>
 
 		<h3>AI chat</h3>
 		<p>
 			Pass the full response received so far and keep <code>streaming</code> enabled until the response
 			ends.
 		</p>
-		<AiChatExample />
+		<div data-not-typeset>
+			<PreviewComponent
+				code={{
+					filename: 'ai-chat-example.svelte',
+					filecode: aiChatExampleCode,
+					lang: 'svelte',
+					highlight: [48]
+				}}
+				showRetry={false}
+				isCentered={false}
+			>
+				<AiChatExample />
+			</PreviewComponent>
+		</div>
 
 		<p class="mt-8 text-sm text-muted-foreground">
 			Missing something?
