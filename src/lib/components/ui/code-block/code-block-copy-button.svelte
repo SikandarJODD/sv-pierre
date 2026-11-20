@@ -17,7 +17,7 @@
 		class: className,
 		value,
 		variant = 'ghost',
-		size = 'icon-xs',
+		size = 'icon-md',
 		onclick,
 		...restProps
 	}: CodeBlockCopyButtonProps = $props();

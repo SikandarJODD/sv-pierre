@@ -95,25 +95,52 @@
 			ends.
 		</p>
 		<AiChatExample />
+
+		<p class="mt-8 text-sm text-muted-foreground">
+			Missing something?
+			<FaviconLink href="https://x.com/messages/compose?recipient_id=1595792880576401408"
+				>DM me on X</FaviconLink
+			>. Found a bug?
+			<FaviconLink href="https://github.com/SikandarJODD/sv-pierre/issues"
+				>Open an issue</FaviconLink
+			>.
+		</p>
 	</section>
 
 	<section aria-labelledby="credits">
 		<h2 id="credits">Credits</h2>
 		<p>
 			Built on
-			<FaviconLink href="https://diffs.com/docs#words">Pierre Words</FaviconLink> and
-			<FaviconLink href="https://github.com/pierrecomputer/pierre/tree/main/packages/highlights">
-				Pierre Highlights
-			</FaviconLink>. This wrapper is not maintained or endorsed by Pierre.
+			<FaviconLink href="https://diffs.com/words">Pierre Words</FaviconLink> and
+			<FaviconLink href="https://diffs.com/highlights">Pierre Highlights</FaviconLink>. This project
+			is not maintained or endorsed by Pierre.
 		</p>
 	</section>
 
-	<footer class="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
-		<p>
-			<FaviconLink href="https://npmx.dev/package/@sv-pierre/words">npmx</FaviconLink>,
-			<FaviconLink href="https://www.npmjs.com/package/@sv-pierre/words">npmjs</FaviconLink>,
-			<FaviconLink href="https://github.com/SikandarJODD/sv-pierre">GitHub</FaviconLink>, and
-			<FaviconLink href="https://bhide.dev">Bhide</FaviconLink>
-		</p>
+	<footer data-not-typeset class="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
+		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+			<p>
+				Built by
+				<FaviconLink
+					class="mx-0.5 no-underline hover:no-underline"
+					href="https://bhide.dev">Bhide Svelte</FaviconLink
+				>
+			</p>
+
+			<nav aria-label="Project links" class="flex flex-wrap items-center gap-x-4 gap-y-2">
+				<FaviconLink
+					class="mx-0 no-underline hover:no-underline"
+					href="https://npmx.dev/package/@sv-pierre/words">npmx</FaviconLink
+				>
+				<FaviconLink
+					class="mx-0 no-underline hover:no-underline"
+					href="https://www.npmjs.com/package/@sv-pierre/words">npm</FaviconLink
+				>
+				<FaviconLink
+					class="mx-0 no-underline hover:no-underline"
+					href="https://github.com/SikandarJODD/sv-pierre">GitHub</FaviconLink
+				>
+			</nav>
+		</div>
 	</footer>
 </main>
