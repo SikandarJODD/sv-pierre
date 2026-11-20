@@ -1,22 +1,26 @@
 <script lang="ts">
-	import { onDestroy } from "svelte";
+	import { onDestroy } from 'svelte';
 	import CheckIcon from '@lucide/svelte/icons/check';
 	import CopyIcon from '@lucide/svelte/icons/copy';
-	import { Button, type ButtonProps } from "#lib/components/ui/button/index.js";
-	import { cn } from "#lib/utils.js";
+	import { Button, type ButtonProps } from '#lib/components/ui/button/index.js';
+	import { cn } from '#lib/utils.js';
+	import type { ClassValue } from 'svelte/elements';
+
+	type CodeBlockCopyButtonProps = Omit<ButtonProps, 'class' | 'onclick'> & {
+		class?: ClassValue;
+		value: string;
+		onclick?: (event: MouseEvent) => void;
+	};
 
 	let {
 		ref = $bindable(null),
 		class: className,
 		value,
-		variant = "ghost",
-		size = "icon-xs",
+		variant = 'ghost',
+		size = 'icon-xs',
 		onclick,
 		...restProps
-	}: Omit<ButtonProps, "onclick"> & {
-		value: string;
-		onclick?: (e: MouseEvent) => void;
-	} = $props();
+	}: CodeBlockCopyButtonProps = $props();
 
 	let copied = $state(false);
 	let timeout: ReturnType<typeof setTimeout> | undefined;
@@ -41,18 +45,18 @@
 	data-copied={copied || undefined}
 	{variant}
 	{size}
-	aria-label={copied ? "Copied" : "Copy"}
+	aria-label={copied ? 'Copied' : 'Copy'}
 	class={cn(className)}
-	onclick={(e) => {
+	onclick={(e: MouseEvent) => {
 		onclick?.(e);
 		copy();
 	}}
 	{...restProps}
 >
 	{#if copied}
-		<CheckIcon  />
+		<CheckIcon />
 	{:else}
-		<CopyIcon  />
+		<CopyIcon />
 	{/if}
 </Button>
-<span aria-live="polite" class="sr-only">{copied ? "Copied" : ""}</span>
+<span aria-live="polite" class="sr-only">{copied ? 'Copied' : ''}</span>
