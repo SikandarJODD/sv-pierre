@@ -27,6 +27,7 @@ const aliases: Record<string, keyof typeof languages> = {
 	ts: 'typescript',
 	zsh: 'bash'
 };
+export type SupportedLanguage = keyof typeof languages;
 
 let highlighter: Promise<HighlighterCore> | undefined;
 
