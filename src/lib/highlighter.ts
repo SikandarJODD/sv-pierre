@@ -9,30 +9,22 @@ import { createJavaScriptRegexEngine } from 'shiki/engine/javascript';
 // Add the languages you need. Each one loads the first time it is used.
 const languages = {
 	bash: () => import('shiki/langs/shellscript.mjs'),
-	css: () => import('shiki/langs/css.mjs'),
-	diff: () => import('shiki/langs/diff.mjs'),
-	html: () => import('shiki/langs/html.mjs'),
-	javascript: () => import('shiki/langs/javascript.mjs'),
-	json: () => import('shiki/langs/json.mjs'),
-	jsx: () => import('shiki/langs/jsx.mjs'),
+	// css: () => import('shiki/langs/css.mjs'),
+	// diff: () => import('shiki/langs/diff.mjs'),
+	// html: () => import('shiki/langs/html.mjs'),
+	// javascript: () => import('shiki/langs/javascript.mjs'),
 	markdown: () => import('shiki/langs/markdown.mjs'),
-	python: () => import('shiki/langs/python.mjs'),
-	sql: () => import('shiki/langs/sql.mjs'),
 	svelte: () => import('shiki/langs/svelte.mjs'),
-	tsx: () => import('shiki/langs/tsx.mjs'),
-	typescript: () => import('shiki/langs/typescript.mjs'),
-	yaml: () => import('shiki/langs/yaml.mjs')
+	typescript: () => import('shiki/langs/typescript.mjs')
 };
 
 const aliases: Record<string, keyof typeof languages> = {
-	js: 'javascript',
+	// js: 'javascript',
 	md: 'markdown',
-	py: 'python',
 	sh: 'bash',
 	shell: 'bash',
 	shellscript: 'bash',
 	ts: 'typescript',
-	yml: 'yaml',
 	zsh: 'bash'
 };
 
@@ -40,7 +32,7 @@ let highlighter: Promise<HighlighterCore> | undefined;
 
 function getHighlighter() {
 	highlighter ??= createHighlighterCore({
-		themes: [import('shiki/themes/github-light.mjs'), import('shiki/themes/github-dark.mjs')],
+		themes: [import('shiki/themes/github-light.mjs'), import('shiki/themes/vesper.mjs')],
 		langs: [],
 		engine: createJavaScriptRegexEngine({ forgiving: true })
 	});
@@ -106,7 +98,7 @@ export async function loadHighlighter(language: string) {
 			const tokenize = (text: string) =>
 				shiki.codeToTokens(text, {
 					lang,
-					themes: { light: 'github-light', dark: 'github-dark' },
+					themes: { light: 'github-light', dark: 'vesper' },
 					defaultColor: false,
 					grammarState: state
 				}).tokens;
