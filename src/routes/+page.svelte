@@ -4,7 +4,7 @@
 	import MarkdownExample from '#lib/components/examples/markdown-example.svelte';
 	import * as CodeBlock from '#lib/components/ui/code-block/index.js';
 	import { FaviconLink } from '#lib/components/ui/favicon-link/index.js';
-	import { Kbd } from '#lib/components/ui/kbd/index.js';
+	// import { Kbd } from '#lib/components/ui/kbd/index.js';
 	import { PMCommand } from '#lib/components/ui/pm-command/index.js';
 	import { useHighlightedCode } from '#lib/hooks/use-highlighted-code.svelte.js';
 
@@ -20,14 +20,24 @@
 	);
 </script>
 
-<main class="typeset typeset-docs mx-auto max-w-[42rem] px-5 py-12 sm:py-20">
+<main class="typeset typeset-docs mx-auto max-w-[42rem] min-w-0 px-5 py-12 sm:py-20">
 	<header>
-		<h1>@sv-pierre/words</h1>
-		<p>
-			A Svelte 5 wrapper for Pierre Words. Render static or streaming Markdown with focused DOM
-			updates, syntax highlighting, and the renderer options from Pierre.
+		<h1 class="mt-0 text-[2.125rem] leading-[1.1] sm:text-[2.3rem]">Pierre Words for Svelte</h1>
+		<p class="max-w-[38rem] text-[1.05rem] leading-7 text-muted-foreground">
+			Render static or streaming Markdown in Svelte with incremental DOM updates and optional
+			syntax highlighting.
 		</p>
-		<p class="text-sm text-muted-foreground">Press <Kbd>D</Kbd> to switch theme.</p>
+		<p class="mt-5 text-sm text-muted-foreground">
+			Unofficial Svelte integration by
+			<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://bhide.dev"
+				>Bhide Svelte</FaviconLink
+			>. Built on
+			<FaviconLink
+				class="mx-0.5 no-underline hover:no-underline"
+				href="https://diffs.com/words">Pierre Words</FaviconLink
+			>.
+		</p>
+		<!-- <p class="mt-3 text-sm text-muted-foreground">Press <Kbd>D</Kbd> to switch theme.</p> -->
 	</header>
 
 	<section aria-labelledby="installation">
@@ -37,17 +47,17 @@
 			title="Install @sv-pierre/words"
 			command="add"
 			args={['@sv-pierre/words']}
+			variant="default"
 		/>
 	</section>
 
 	<section aria-labelledby="features">
 		<h2 id="features">Features</h2>
+		<p>Stream partial Markdown as it arrives and update only the DOM that changed.</p>
 		<ul>
-			<li>Render static Markdown or update it while text streams in.</li>
 			<li>Parse CommonMark, GFM, tables, task lists, and footnotes.</li>
-			<li>Update only the DOM that changed between renders.</li>
-			<li>Add syntax highlighting, line numbers, math, or CJK support when needed.</li>
-			<li>Control incomplete Markdown, streaming carets, and animated updates.</li>
+			<li>Add syntax highlighting and line numbers when needed.</li>
+			<li>Enable math, CJK support, incomplete parsing, or streaming carets.</li>
 		</ul>
 	</section>
 
@@ -76,15 +86,13 @@
 		<MarkdownExample />
 
 		<h3>Markdown with code</h3>
-		<p>
-			Add the Pierre Highlights plugin to render fenced code blocks with light and dark themes.
-		</p>
+		<p>Add the Pierre Highlights plugin to render fenced code blocks with light and dark themes.</p>
 		<MarkdownCodeExample />
 
 		<h3>AI chat</h3>
 		<p>
-			Pass the full response received so far and keep <code>streaming</code> enabled until the
-			response ends.
+			Pass the full response received so far and keep <code>streaming</code> enabled until the response
+			ends.
 		</p>
 		<AiChatExample />
 	</section>
@@ -94,9 +102,9 @@
 		<p>
 			Built on
 			<FaviconLink href="https://diffs.com/docs#words">Pierre Words</FaviconLink> and
-			<FaviconLink href="https://github.com/pierrecomputer/pierre/tree/main/packages/highlights"
-				>Pierre Highlights</FaviconLink
-			>. This wrapper is not maintained or endorsed by Pierre.
+			<FaviconLink href="https://github.com/pierrecomputer/pierre/tree/main/packages/highlights">
+				Pierre Highlights
+			</FaviconLink>. This wrapper is not maintained or endorsed by Pierre.
 		</p>
 	</section>
 

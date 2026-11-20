@@ -141,9 +141,17 @@
 		@apply border-border outline-ring/50;
 	}
 	body {
-		@apply bg-background text-foreground;
+		@apply bg-background text-foreground antialiased;
+		font-synthesis-weight: none;
+		text-rendering: optimizeLegibility;
+	}
+	@media (pointer: fine) {
+		html {
+			overscroll-behavior-y: none;
+		}
 	}
 	html {
+		scroll-behavior: smooth;
 		@apply font-sans;
 	}
 }

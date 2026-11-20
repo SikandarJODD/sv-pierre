@@ -34,7 +34,7 @@ Use \`$state\` for local state and read it directly in your markup.`;
 	});
 </script>
 
-<div data-not-typeset class="mt-4 overflow-hidden rounded-lg border border-border bg-card">
+<div data-not-typeset class="mt-4 overflow-hidden rounded-lg border border-input bg-card">
 	<div class="border-b border-border bg-muted/40 px-4 py-3 sm:px-5">
 		<p class="text-xs font-medium text-muted-foreground">You</p>
 		<p class="mt-1 text-sm text-foreground">How does reactivity work in Svelte?</p>
