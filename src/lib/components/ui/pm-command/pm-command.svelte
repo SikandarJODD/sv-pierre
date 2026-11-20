@@ -28,10 +28,11 @@
 	import { cn } from '#lib/utils.js';
 	import type { Command, Agent } from 'package-manager-detector';
 	import { resolveCommand } from 'package-manager-detector/commands';
-	import { CodeBlockCopyButton } from '../code-block/index.js';
+	import { CodeBlockCopyButton, CodeBlockLine } from '../code-block/index.js';
 	import TerminalIcon from '@lucide/svelte/icons/terminal';
 	import * as Tooltip from '#lib/components/ui/tooltip/index.js';
 	import * as Tabs from '#lib/components/ui/tabs/index.js';
+	import { useHighlightedCode } from '#lib/hooks/use-highlighted-code.svelte.js';
 	import { page } from '$app/state';
 
 	let {
@@ -47,6 +48,10 @@
 	const cmd = $derived(resolveCommand(agent, command, args));
 
 	const commandText = $derived(`${cmd?.command} ${cmd?.args.join(' ')}`);
+	const highlightedCommand = useHighlightedCode(
+		() => commandText,
+		() => 'bash'
+	);
 
 	let componentName = $derived.by(() => {
 		if (title) return title;
@@ -83,7 +88,7 @@
 							title={componentName}
 							{...props}
 							value={commandText}
-							class="size-6 [&_svg]:size-3"
+							class="[&_svg]:size-3!"
 						/>
 					{/snippet}
 				</Tooltip.Trigger>
@@ -92,11 +97,10 @@
 		</Tooltip.Provider>
 	</div>
 	<div class="no-scrollbar overflow-x-auto p-3">
-		<span
-			class="font-mono text-xs leading-none font-light text-nowrap text-primary subpixel-antialiased md:text-sm"
-		>
-			{commandText}
-		</span>
+		<!-- subpixel-antialiased -->
+		<div class="font-mono text-xs leading-none text-nowrap md:text-sm">
+			<CodeBlockLine class="mx-0 px-0" code={highlightedCommand.current[0]} />
+		</div>
 	</div>
 </div>
 

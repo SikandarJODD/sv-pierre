@@ -6,7 +6,7 @@
 \`\`\`svelte
 <script lang="ts">
   let count = $state(0);
-<\/script>
+${'</' + 'script>'}
 
 <button onclick={() => count++}>
   Count: {count}
@@ -14,6 +14,9 @@
 \`\`\``;
 </script>
 
-<div data-not-typeset class="mt-4 overflow-hidden rounded-lg border border-input bg-card p-4 sm:p-5">
+<div
+	data-not-typeset
+	class="mt-4 overflow-hidden rounded-lg border border-input bg-card p-4 sm:p-5"
+>
 	<Markdown {source} options={{ plugins: markdownPlugins }} />
 </div>

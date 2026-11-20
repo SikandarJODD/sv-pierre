@@ -7,10 +7,16 @@
 	// import { Kbd } from '#lib/components/ui/kbd/index.js';
 	import { PMCommand } from '#lib/components/ui/pm-command/index.js';
 	import { useHighlightedCode } from '#lib/hooks/use-highlighted-code.svelte.js';
+	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+
+	const title = 'Pierre Words for Svelte';
+	const description =
+		'Render static or streaming Markdown in Svelte with incremental DOM updates and optional syntax highlighting.';
+	const socialImage = 'https://raw.githubusercontent.com/SikandarJODD/sv-pierre/main/static/og.png';
 
 	const usageCode = `<script lang="ts">
 	import { Markdown } from '@sv-pierre/words';
-<\/script>
+${'</' + 'script>'}
 
 <Markdown source="# Hello, **Svelte**" />`;
 
@@ -20,22 +26,74 @@
 	);
 </script>
 
+<MetaTags
+	{title}
+	{description}
+	robots="index,follow"
+	additionalRobotsProps={{ maxSnippet: -1, maxImagePreview: 'large', maxVideoPreview: -1 }}
+	openGraph={{
+		type: 'website',
+		title,
+		description,
+		siteName: title,
+		images: [
+			{
+				url: socialImage,
+				width: 1200,
+				height: 630,
+				type: 'image/png',
+				alt: 'Pierre Words for Svelte'
+			}
+		]
+	}}
+	twitter={{
+		cardType: 'summary_large_image',
+		creator: '@Sikandar_Bhide',
+		creatorId: '1595792880576401408',
+		title,
+		description,
+		image: socialImage,
+		imageAlt: 'Pierre Words for Svelte'
+	}}
+/>
+
+<JsonLd
+	schema={{
+		'@type': 'SoftwareSourceCode',
+		name: title,
+		description,
+		codeRepository: 'https://github.com/SikandarJODD/sv-pierre',
+		programmingLanguage: 'TypeScript',
+		runtimePlatform: 'Svelte 5',
+		license: 'https://opensource.org/license/mit',
+		author: {
+			'@type': 'Person',
+			name: 'Bhide Svelte',
+			url: 'https://bhide.dev'
+		},
+		isBasedOn: {
+			'@type': 'SoftwareSourceCode',
+			name: 'Pierre Words',
+			url: 'https://diffs.com/words',
+			codeRepository: 'https://github.com/pierrecomputer/pierre'
+		}
+	}}
+/>
+
 <main class="typeset typeset-docs mx-auto max-w-[42rem] min-w-0 px-5 py-12 sm:py-20">
 	<header>
-		<h1 class="mt-0 text-[2.125rem] leading-[1.1] sm:text-[2.3rem]">Pierre Words for Svelte</h1>
+		<h1 class="mt-0 text-[2.125rem] leading-[1.1] sm:text-[2.3rem]">{title}</h1>
 		<p class="max-w-[38rem] text-[1.05rem] leading-7 text-muted-foreground">
-			Render static or streaming Markdown in Svelte with incremental DOM updates and optional
-			syntax highlighting.
+			{description}
 		</p>
 		<p class="mt-5 text-sm text-muted-foreground">
 			Unofficial Svelte integration by
-			<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://bhide.dev"
-				>Bhide Svelte</FaviconLink
-			>. Built on
-			<FaviconLink
-				class="mx-0.5 no-underline hover:no-underline"
-				href="https://diffs.com/words">Pierre Words</FaviconLink
-			>.
+			<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://bhide.dev">
+				Bhide Svelte
+			</FaviconLink>. Built on
+			<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://diffs.com/words">
+				Pierre Words
+			</FaviconLink>.
 		</p>
 		<!-- <p class="mt-3 text-sm text-muted-foreground">Press <Kbd>D</Kbd> to switch theme.</p> -->
 	</header>
@@ -98,12 +156,12 @@
 
 		<p class="mt-8 text-sm text-muted-foreground">
 			Missing something?
-			<FaviconLink href="https://x.com/messages/compose?recipient_id=1595792880576401408"
-				>DM me on X</FaviconLink
-			>. Found a bug?
-			<FaviconLink href="https://github.com/SikandarJODD/sv-pierre/issues"
-				>Open an issue</FaviconLink
-			>.
+			<FaviconLink href="https://x.com/messages/compose?recipient_id=1595792880576401408">
+				DM me on X
+			</FaviconLink>. Found a bug?
+			<FaviconLink href="https://github.com/SikandarJODD/sv-pierre/issues">
+				Open an issue
+			</FaviconLink>.
 		</p>
 	</section>
 
@@ -121,25 +179,30 @@
 		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 			<p>
 				Built by
-				<FaviconLink
-					class="mx-0.5 no-underline hover:no-underline"
-					href="https://bhide.dev">Bhide Svelte</FaviconLink
-				>
+				<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://bhide.dev">
+					Bhide Svelte
+				</FaviconLink>
 			</p>
 
 			<nav aria-label="Project links" class="flex flex-wrap items-center gap-x-4 gap-y-2">
 				<FaviconLink
 					class="mx-0 no-underline hover:no-underline"
-					href="https://npmx.dev/package/@sv-pierre/words">npmx</FaviconLink
+					href="https://npmx.dev/package/@sv-pierre/words"
 				>
+					npmx
+				</FaviconLink>
 				<FaviconLink
 					class="mx-0 no-underline hover:no-underline"
-					href="https://www.npmjs.com/package/@sv-pierre/words">npm</FaviconLink
+					href="https://www.npmjs.com/package/@sv-pierre/words"
 				>
+					npm
+				</FaviconLink>
 				<FaviconLink
 					class="mx-0 no-underline hover:no-underline"
-					href="https://github.com/SikandarJODD/sv-pierre">GitHub</FaviconLink
+					href="https://github.com/SikandarJODD/sv-pierre"
 				>
+					GitHub
+				</FaviconLink>
 			</nav>
 		</div>
 	</footer>
