@@ -1,8 +1,10 @@
 <script lang="ts">
+	import { createHighlightsPlugin } from '@pierre/words/highlights';
 	import { createDomRenderer, type AnimateOptions, type HtmlOptions } from '@pierre/words/html';
 	import '@pierre/words/styles.css';
 	import type { Action } from 'svelte/action';
 	import { fromAction } from 'svelte/attachments';
+	import { markdownPlugins, type HighlightOptions } from './highlights.js';
 
 	type Props = {
 		source?: string;
@@ -10,11 +12,12 @@
 		parseIncomplete?: boolean;
 		animated?: boolean | AnimateOptions;
 		caret?: 'block' | 'circle';
+		highlight?: boolean | HighlightOptions;
 		options?: HtmlOptions;
 		class?: string;
 	};
 
-	type MarkdownState = Omit<Props, 'class'>;
+	type MarkdownState = Omit<Props, 'class' | 'highlight'>;
 
 	let {
 		source = '',
@@ -22,9 +25,23 @@
 		parseIncomplete = true,
 		animated = false,
 		caret,
+		highlight = false,
 		options = {},
 		class: className
 	}: Props = $props();
+
+	let highlightPlugin = $derived.by(() => {
+		if (!highlight) return undefined;
+		return highlight === true ? markdownPlugins.code : createHighlightsPlugin(highlight);
+	});
+
+	let configuredOptions = $derived.by(() => {
+		if (!highlightPlugin || options.plugins?.code) return options;
+		return {
+			...options,
+			plugins: { ...options.plugins, code: highlightPlugin }
+		};
+	});
 
 	const markdown: Action<HTMLDivElement, MarkdownState> = (node, initial) => {
 		const renderer = createDomRenderer(node);
@@ -56,6 +73,6 @@
 		parseIncomplete,
 		animated,
 		caret,
-		options
+		options: configuredOptions
 	}))}
 ></div>
