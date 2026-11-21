@@ -49,6 +49,24 @@ Pass the full text received so far. Set `streaming` to `false` when the stream e
 <Markdown {source} options={{ plugins: markdownPlugins }} />
 ```
 
+### Custom themes
+
+Pass a light and dark theme to `highlight`. This example uses GitHub Light and Vesper.
+
+```svelte
+<script lang="ts">
+	import { Markdown } from '@sv-pierre/words';
+	import light from '@pierre/highlights/themes/github-light';
+	import dark from '@pierre/highlights/themes/vesper';
+
+	const source = `\`\`\`ts
+const greeting = 'Hello';
+\`\`\``;
+</script>
+
+<Markdown {source} highlight={{ themes: { light, dark }, defaultColor: 'light-dark()' }} />
+```
+
 ### Renderer options
 
 Add only the options you need.
