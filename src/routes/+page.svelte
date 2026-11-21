@@ -7,6 +7,7 @@
 	import markdownExampleCode from '#lib/components/examples/markdown-example.svelte?raw';
 	import MathCjkExample from '#lib/components/examples/math-cjk-example.svelte';
 	import mathCjkExampleCode from '#lib/components/examples/math-cjk-example.svelte?raw';
+	import InstallationFrame from '#lib/components/installation-frame.svelte';
 	import MermaidExample from '#lib/components/examples/mermaid-example.svelte';
 	import mermaidExampleCode from '#lib/components/examples/mermaid-example.svelte?raw';
 	import PromptActions from '#lib/components/prompt-actions.svelte';
@@ -130,15 +131,19 @@ ${'</' + 'script>'}
 	<section aria-labelledby="installation">
 		<h2 id="installation">Installation</h2>
 		<div class="mt-4">
-			<PromptActions />
+			<InstallationFrame>
+				{#snippet actions()}
+					<PromptActions />
+				{/snippet}
+				<PMCommand
+					class="shadow-none"
+					title="Install @sv-pierre/words"
+					command="add"
+					args={['@sv-pierre/words']}
+					variant="default"
+				/>
+			</InstallationFrame>
 		</div>
-		<PMCommand
-			class="mt-1 rounded-xl"
-			title="Install @sv-pierre/words"
-			command="add"
-			args={['@sv-pierre/words']}
-			variant="default"
-		/>
 	</section>
 
 	<section aria-labelledby="features">
