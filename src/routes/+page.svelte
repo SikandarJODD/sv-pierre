@@ -31,6 +31,27 @@
 ${'</' + 'script>'}
 
 <Markdown source="# Hello, **Svelte**" />`;
+
+	const optionsCode = `<script lang="ts">
+	import { Markdown } from '@sv-pierre/words';
+
+	const source = '# Hello, **Svelte**';
+${'</' + 'script>'}
+
+<!-- Set math to true to render TeX as SVG. -->
+<Markdown {source} options={{ math: true }} />
+
+<!-- Set cjk to true to allow emphasis next to CJK punctuation. -->
+<Markdown {source} options={{ cjk: true }} />
+
+<!-- Set controls to false to hide copy and download buttons. -->
+<Markdown {source} options={{ controls: false }} />
+
+<!-- Set lineNumbers to false to hide code line numbers. -->
+<Markdown {source} options={{ lineNumbers: false }} />
+
+<!-- Use urlTransform to remove image URLs while keeping links. -->
+<Markdown {source} options={{ urlTransform: (url, type) => (type === 'src' ? null : url) }} />`;
 </script>
 
 <MetaTags
@@ -133,6 +154,18 @@ ${'</' + 'script>'}
 				code={{
 					filename: 'code.svelte',
 					filecode: usageCode,
+					lang: 'svelte',
+					hideLines: true
+				}}
+			/>
+		</div>
+
+		<p>Add only the options you need.</p>
+		<div class="mt-4">
+			<CodeFrame
+				code={{
+					filename: 'options.svelte',
+					filecode: optionsCode,
 					lang: 'svelte',
 					hideLines: true
 				}}

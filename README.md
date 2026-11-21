@@ -51,16 +51,29 @@ Pass the full text received so far. Set `streaming` to `false` when the stream e
 
 ### Renderer options
 
+Add only the options you need.
+
 ```svelte
-<Markdown
-	{source}
-	options={{
-		math: true,
-		cjk: true,
-		lineNumbers: true,
-		disallowedElements: ['img']
-	}}
-/>
+<script lang="ts">
+	import { Markdown } from '@sv-pierre/words';
+
+	const source = '# Hello, **Svelte**';
+</script>
+
+<!-- Set math to true to render TeX as SVG. -->
+<Markdown {source} options={{ math: true }} />
+
+<!-- Set cjk to true to allow emphasis next to CJK punctuation. -->
+<Markdown {source} options={{ cjk: true }} />
+
+<!-- Set controls to false to hide copy and download buttons. -->
+<Markdown {source} options={{ controls: false }} />
+
+<!-- Set lineNumbers to false to hide code line numbers. -->
+<Markdown {source} options={{ lineNumbers: false }} />
+
+<!-- Use urlTransform to remove image URLs while keeping links. -->
+<Markdown {source} options={{ urlTransform: (url, type) => (type === 'src' ? null : url) }} />
 ```
 
 See the [`@pierre/words` docs](https://diffs.com/docs#words) for all renderer options.
