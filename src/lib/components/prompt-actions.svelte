@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { TextMorph } from 'torph/svelte';
 	import { onDestroy } from 'svelte';
 	import { ChatGPT, Claude } from '#lib/components/icons/index.js';
 	import { Button } from '#lib/components/ui/button/index.js';
@@ -64,8 +65,14 @@ Read ${docsUrl} first. Ask which features I want, such as streaming, syntax high
 	>
 		<Claude aria-hidden="true" />
 	</Button>
-	<Button variant="outline" size="sm" class="rounded-full shadow-none" onclick={copy}>
-		{copied ? 'Copied' : 'Copy Prompt'}
+	<Button
+		variant="outline"
+		size="sm"
+		class="overflow-hidden rounded-full text-[13px] font-normal shadow-none"
+		onclick={copy}
+	>
+		<!-- {copied ? 'Copied' : 'Copy Prompt'} -->
+		<TextMorph text={copied ? 'Copied' : 'Copy Prompt'} />
 	</Button>
 </div>
 <span aria-live="polite" class="sr-only">{copied ? 'Prompt copied' : ''}</span>

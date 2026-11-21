@@ -15,14 +15,14 @@
 		const top = inset;
 		const right = frameWidth - inset;
 		const bottom = frameHeight - inset;
-		const actionLeft = frameWidth - actionsWidth - 4;
+		const actionLeft = frameWidth - actionsWidth + 10;
 		const curveEnd = actionLeft - 1;
-		const curveStart = Math.max(24, curveEnd - 54);
+		const curveStart = curveEnd - 46;
 
 		return [
 			`M 18 ${bodyTop}`,
 			`H ${curveStart}`,
-			`C ${curveStart + 30} ${bodyTop} ${curveEnd - 24} ${top} ${curveEnd} ${top}`,
+			`C ${curveStart + 36} ${bodyTop} ${curveEnd - 30} ${top} ${curveEnd} ${top}`,
 			`H ${right - 20}`,
 			`Q ${right} ${top} ${right} ${top + 20}`,
 			`V ${bottom - 16}`,
@@ -44,15 +44,17 @@
 >
 	{#if outline}
 		<svg
-			class="pointer-events-none absolute inset-0 size-full overflow-visible"
+			class="pointer-events-none absolute inset-0 size-full"
 			viewBox={`0 0 ${frameWidth} ${frameHeight}`}
-			fill="none"
 			aria-hidden="true"
 		>
 			<path
 				d={outline}
+				fill="var(--background)"
 				stroke="var(--border)"
 				stroke-width="1"
+				stroke-linecap="round"
+				stroke-linejoin="round"
 				vector-effect="non-scaling-stroke"
 			/>
 		</svg>
