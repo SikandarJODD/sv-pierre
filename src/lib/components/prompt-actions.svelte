@@ -7,18 +7,17 @@
 	const docsUrl = 'https://github.com/SikandarJODD/sv-pierre';
 	const installCommand = 'pnpm add @sv-pierre/words';
 
-	const chatGptPrompt = `Read ${docsUrl}. Explain what @sv-pierre/words does and how to add it to a Svelte 5 project. Use ${installCommand}. Ask which features I need, such as streaming, syntax highlighting, math, CJK, Mermaid, line numbers, controls, or Svelte islands. Then show a short setup for those choices.`;
+	const chatGptPrompt = `Read ${docsUrl} and add @sv-pierre/words to my Svelte 5 project with ${installCommand}. Do not ask me anything before installing it. Once it is installed, ask what I would like to see next, such as streaming, math, or CJK support.`;
 
-	const claudePrompt = `Read ${docsUrl} and the instructions in my Svelte 5 project. Ask which @sv-pierre/words features I want, such as streaming, syntax highlighting, math, CJK, Mermaid, line numbers, controls, or Svelte islands. Then run ${installCommand}, set up only my choices, and run the project checks.`;
+	const claudePrompt = `Read ${docsUrl} and the instructions in my Svelte 5 project. Run ${installCommand} without asking me anything first. Once it is installed, ask what I would like to see next, such as streaming, math, or CJK support.`;
 
-	const copyPrompt = `Add @sv-pierre/words to this Svelte 5 project.
+	const copyPrompt = `Please add @sv-pierre/words to this Svelte 5 project.
 
-Read ${docsUrl} first. Ask which features I want, such as streaming, syntax highlighting, math, CJK, Mermaid, line numbers, controls, or Svelte islands. Then:
+Read ${docsUrl}, then run:
 
-1. Run \`${installCommand}\`.
-2. Add only the options I choose.
-3. Show the files you changed and how to use them.
-4. Run the project checks.`;
+\`${installCommand}\`
+
+Once it is installed, ask what I would like to see, such as streaming, math, or CJK support.`;
 
 	const chatGptUrl = `https://chatgpt.com/?q=${encodeURIComponent(chatGptPrompt)}`;
 	const claudeUrl = `https://claude.ai/code/new?q=${encodeURIComponent(claudePrompt)}`;
