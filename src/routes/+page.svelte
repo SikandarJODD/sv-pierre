@@ -129,14 +129,14 @@ ${'</' + 'script>'}
 	</header>
 
 	<section aria-labelledby="installation">
-		<h2 id="installation">Installation</h2>
-		<div class="mt-4">
+		<h2 id="installation" class="ml-0.5">Installation</h2>
+		<div class="-mt-7">
 			<InstallationFrame>
 				{#snippet actions()}
 					<PromptActions />
 				{/snippet}
 				<PMCommand
-					class="shadow-none"
+					class="mt-0! shadow-none"
 					title="Install @sv-pierre/words"
 					command="add"
 					args={['@sv-pierre/words']}

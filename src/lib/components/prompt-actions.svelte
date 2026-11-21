@@ -47,7 +47,7 @@ Read ${docsUrl} first. Ask which features I want, such as streaming, syntax high
 		rel="noreferrer"
 		variant="outline"
 		size="icon-sm"
-		class="rounded-full shadow-none"
+		class="rounded-full bg-muted shadow-none"
 		aria-label="Ask ChatGPT about Pierre Words"
 		title="Ask ChatGPT"
 	>
@@ -59,7 +59,7 @@ Read ${docsUrl} first. Ask which features I want, such as streaming, syntax high
 		rel="noreferrer"
 		variant="outline"
 		size="icon-sm"
-		class="rounded-full shadow-none"
+		class="rounded-full border-amber-600/20 bg-amber-600/5 shadow-none hover:bg-amber-600/10"
 		aria-label="Open Pierre Words in Claude"
 		title="Open in Claude"
 	>

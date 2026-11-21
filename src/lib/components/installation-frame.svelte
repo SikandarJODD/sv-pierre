@@ -15,15 +15,15 @@
 		const top = inset;
 		const right = frameWidth - inset;
 		const bottom = frameHeight - inset;
-		const actionLeft = frameWidth - actionsWidth + 10;
-		const curveEnd = actionLeft - 1;
-		const curveStart = curveEnd - 46;
+		const actionLeft = frameWidth - actionsWidth + 6;
+		const curveEnd = actionLeft + 4;
+		const curveStart = curveEnd - 48;
 
 		return [
 			`M 18 ${bodyTop}`,
 			`H ${curveStart}`,
-			`C ${curveStart + 36} ${bodyTop} ${curveEnd - 30} ${top} ${curveEnd} ${top}`,
-			`H ${right - 20}`,
+			`C ${curveStart + 36} ${bodyTop} ${curveEnd - 28} ${top} ${curveEnd} ${top + 3}`,
+			`H ${right - 26}`,
 			`Q ${right} ${top} ${right} ${top + 20}`,
 			`V ${bottom - 16}`,
 			`Q ${right} ${bottom} ${right - 16} ${bottom}`,
@@ -56,13 +56,14 @@
 				stroke-linecap="round"
 				stroke-linejoin="round"
 				vector-effect="non-scaling-stroke"
+				class="fill-muted"
 			/>
 		</svg>
 	{/if}
-	<div bind:clientWidth={actionsWidth} class="absolute top-1 right-1 z-10">
+	<div bind:clientWidth={actionsWidth} class="absolute top-2 right-1 z-10 bg-muted">
 		{@render actions()}
 	</div>
-	<div class="relative z-10">
+	<div class="relative z-10 bg-muted">
 		{@render children()}
 	</div>
 </div>
