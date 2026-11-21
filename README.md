@@ -1,8 +1,8 @@
-# @sv-pierre/words
+# Pierre Words for Svelte
 
-Unofficial Svelte 5 wrapper for [`@pierre/words`](https://github.com/pierrecomputer/pierre/tree/main/packages/words).
+Unofficial Svelte integration by [Bhide Svelte](https://bhide.dev?utm_source=github&utm_medium=readme&utm_campaign=sv-pierre-words).
 
-Render static or streaming Markdown with fast DOM updates. This project is not maintained or endorsed by Pierre.
+Render static and streaming Markdown in Svelte with incremental DOM updates, syntax highlighting, math, and diagrams.
 
 ## Installation
 
@@ -75,8 +75,6 @@ Add only the options you need.
 <!-- Use urlTransform to remove image URLs while keeping links. -->
 <Markdown {source} options={{ urlTransform: (url, type) => (type === 'src' ? null : url) }} />
 ```
-
-See the [`@pierre/words` docs](https://diffs.com/docs#words) for all renderer options.
 
 ### Mermaid diagrams
 
@@ -162,6 +160,7 @@ Use an `island-NAME` fence with a stable, document-unique `id` to mount an inter
 ## Credits
 
 Built on [Pierre Words](https://github.com/pierrecomputer/pierre/tree/main/packages/words) and [Pierre Highlights](https://github.com/pierrecomputer/pierre/tree/main/packages/highlights).
+This project is not maintained or endorsed by Pierre.
 
 ## License
 
