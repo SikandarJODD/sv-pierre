@@ -30,7 +30,6 @@
 	import { resolveCommand } from 'package-manager-detector/commands';
 	import { CodeBlockCopyButton, CodeBlockLine } from '../code-block/index.js';
 	import TerminalIcon from '@lucide/svelte/icons/terminal';
-	import * as Tooltip from '#lib/components/ui/tooltip/index.js';
 	import * as Tabs from '#lib/components/ui/tabs/index.js';
 	import { useHighlightedCode } from '#lib/hooks/use-highlighted-code.svelte.js';
 	import { page } from '$app/state';
@@ -80,21 +79,7 @@
 				</Tabs.List>
 			</Tabs.Root>
 		</div>
-		<Tooltip.Provider delayDuration={0}>
-			<Tooltip.Root>
-				<Tooltip.Trigger>
-					{#snippet child({ props })}
-						<CodeBlockCopyButton
-							title={componentName}
-							{...props}
-							value={commandText}
-							class="[&_svg]:size-3.5!"
-						/>
-					{/snippet}
-				</Tooltip.Trigger>
-				<Tooltip.Content>Copy to Clipboard</Tooltip.Content>
-			</Tooltip.Root>
-		</Tooltip.Provider>
+		<CodeBlockCopyButton title={componentName} value={commandText} class="[&_svg]:size-3.5!" />
 	</div>
 	<div class="no-scrollbar overflow-x-auto p-3">
 		<!-- subpixel-antialiased -->
