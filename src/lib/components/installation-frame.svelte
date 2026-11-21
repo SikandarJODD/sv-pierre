@@ -16,7 +16,7 @@
 		const right = frameWidth - inset;
 		const bottom = frameHeight - inset;
 		const actionLeft = frameWidth - actionsWidth - 4;
-		const curveEnd = actionLeft - 4;
+		const curveEnd = actionLeft - 1;
 		const curveStart = Math.max(24, curveEnd - 54);
 
 		return [
