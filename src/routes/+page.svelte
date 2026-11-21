@@ -9,6 +9,7 @@
 	import mathCjkExampleCode from '#lib/components/examples/math-cjk-example.svelte?raw';
 	import MermaidExample from '#lib/components/examples/mermaid-example.svelte';
 	import mermaidExampleCode from '#lib/components/examples/mermaid-example.svelte?raw';
+	import PromptActions from '#lib/components/prompt-actions.svelte';
 	import CounterIslandCode from '#lib/components/examples/counter-island.svelte?raw';
 	import StreamingCodeExample from '#lib/components/examples/streaming-code-example.svelte';
 	import streamingCodeExampleCode from '#lib/components/examples/streaming-code-example.svelte?raw';
@@ -128,8 +129,11 @@ ${'</' + 'script>'}
 
 	<section aria-labelledby="installation">
 		<h2 id="installation">Installation</h2>
+		<div class="mt-4">
+			<PromptActions />
+		</div>
 		<PMCommand
-			class="mt-4"
+			class="mt-1 rounded-xl"
 			title="Install @sv-pierre/words"
 			command="add"
 			args={['@sv-pierre/words']}
