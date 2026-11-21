@@ -81,6 +81,7 @@
 		"globals": "^17.14.0",
 		"mode-watcher": "^1.1.0",
 		"package-manager-detector": "^1.9.0",
+		"pele": "^1.13.0",
 		"playwright": "^1.65.1",
 		"prettier": "^3.10.1",
 		"prettier-plugin-svelte": "^4.1.1",
@@ -106,6 +107,6 @@
 	},
 	"dependencies": {
 		"@pierre/highlights": "^0.5.1",
-		"@pierre/words": "^0.2.2"
+		"@pierre/words": "^0.3.0"
 	}
 }

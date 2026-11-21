@@ -5,8 +5,15 @@
 	import markdownCodeExampleCode from '#lib/components/examples/markdown-code-example.svelte?raw';
 	import MarkdownExample from '#lib/components/examples/markdown-example.svelte';
 	import markdownExampleCode from '#lib/components/examples/markdown-example.svelte?raw';
+	import MathCjkExample from '#lib/components/examples/math-cjk-example.svelte';
+	import mathCjkExampleCode from '#lib/components/examples/math-cjk-example.svelte?raw';
+	import MermaidExample from '#lib/components/examples/mermaid-example.svelte';
+	import mermaidExampleCode from '#lib/components/examples/mermaid-example.svelte?raw';
+	import CounterIslandCode from '#lib/components/examples/counter-island.svelte?raw';
 	import StreamingCodeExample from '#lib/components/examples/streaming-code-example.svelte';
 	import streamingCodeExampleCode from '#lib/components/examples/streaming-code-example.svelte?raw';
+	import SvelteIslandExample from '#lib/components/examples/svelte-island-example.svelte';
+	import svelteIslandExampleCode from '#lib/components/examples/svelte-island-example.svelte?raw';
 	import { CodeFrame } from '#lib/components/ui/code/index.js';
 	import { FaviconLink } from '#lib/components/ui/favicon-link/index.js';
 	// import { Kbd } from '#lib/components/ui/kbd/index.js';
@@ -165,6 +172,61 @@ ${'</' + 'script>'}
 				isCentered={false}
 			>
 				<MarkdownCodeExample />
+			</PreviewComponent>
+		</div>
+
+		<h3>Mermaid diagram</h3>
+		<p>Render a Mermaid fence as SVG with Pierre's Pele integration.</p>
+		<div data-not-typeset>
+			<PreviewComponent
+				code={{
+					filename: 'mermaid-example.svelte',
+					filecode: mermaidExampleCode,
+					lang: 'svelte'
+				}}
+				showRetry={false}
+				isCentered={false}
+			>
+				<MermaidExample />
+			</PreviewComponent>
+		</div>
+
+		<h3>Math and CJK</h3>
+		<p>Enable the built-in TeX-to-SVG renderer and CJK-friendly emphasis.</p>
+		<div data-not-typeset>
+			<PreviewComponent
+				code={{
+					filename: 'math-cjk-example.svelte',
+					filecode: mathCjkExampleCode,
+					lang: 'svelte'
+				}}
+				showRetry={false}
+				isCentered={false}
+			>
+				<MathCjkExample />
+			</PreviewComponent>
+		</div>
+
+		<h3>Svelte component island</h3>
+		<p>Mount an interactive Svelte component from a named Markdown fence.</p>
+		<div data-not-typeset>
+			<PreviewComponent
+				code={[
+					{
+						filename: 'svelte-island-example.svelte',
+						filecode: svelteIslandExampleCode,
+						lang: 'svelte'
+					},
+					{
+						filename: 'counter-island.svelte',
+						filecode: CounterIslandCode,
+						lang: 'svelte'
+					}
+				]}
+				showRetry={false}
+				isCentered={false}
+			>
+				<SvelteIslandExample />
 			</PreviewComponent>
 		</div>
 

@@ -1,3 +1,5 @@
 engineStrict: true
 allowBuilds:
   esbuild: true
+minimumReleaseAgeExclude:
+  - '@pierre/words@0.3.0'

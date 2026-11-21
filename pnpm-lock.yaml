@@ -12,8 +12,8 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1
       '@pierre/words':
-        specifier: ^0.2.2
-        version: 0.2.2(@pierre/highlights@0.5.1)
+        specifier: ^0.3.0
+        version: 0.3.0(@pierre/highlights@0.5.1)
     devDependencies:
       '@eslint/js':
         specifier: ^10.0.1
@@ -84,6 +84,9 @@ importers:
       package-manager-detector:
         specifier: ^1.9.0
         version: 1.9.0
+      pele:
+        specifier: ^1.13.0
+        version: 1.13.0
       playwright:
         specifier: ^1.65.1
         version: 1.65.1
@@ -291,15 +294,18 @@ packages:
   '@pierre/highlights@0.5.1':
     resolution: {integrity: sha512-c2WF6sgwgKdxXU6FpWDLWUYHRca/cJy+3QJkWAqYqEAFxqlPf8eSH0ehHcFFjKBmT+9KBl9H7q6z7HMRU7+m6g==}
 
-  '@pierre/words@0.2.2':
-    resolution: {integrity: sha512-gOMolXeQzPK9IVNDimh8pronqzpFISFxp+rhobKT8NYQsTOpDLQKgr0rjwZn3I/kHLF+Sqoe2aIO/R7H71IzwQ==}
+  '@pierre/words@0.3.0':
+    resolution: {integrity: sha512-k38qoYj0eUCr+vGQlXlSer78q5EeG7rSge9b2ADBFvLQ0L+OJH5zAdgdgm1jqkFq2Q6zXUuBkZWB5nQgPy2iUQ==}
     peerDependencies:
       '@pierre/highlights': '>=0.5.1'
       react: ^18.3.1 || ^19.0.0
+      react-dom: ^18.3.1 || ^19.0.0
     peerDependenciesMeta:
       '@pierre/highlights':
         optional: true
       react:
+        optional: true
+      react-dom:
         optional: true
 
   '@playwright/test@1.65.1':
@@ -1258,6 +1264,10 @@ packages:
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
 
+  pele@1.13.0:
+    resolution: {integrity: sha512-Ie8UKY9x00MsuR3jO6AzUwzK2Z6MIV3Tf4EDdITiuk8Uaz8K7g0R082WqsqNaSU8DdgkrRvZThzhit83mi/uiw==}
+    engines: {node: '>=20'}
+
   picocolors@1.1.1:
     resolution: {integrity: sha512-xceH2snhtb5M9liqDsmEw56le376mTZkEX/jEb/RxNFyegNul7eNslCXP9FDj/Lcu0X8KEyMceP2ntpaHrDEVA==}
 
@@ -1941,7 +1951,7 @@ snapshots:
 
   '@pierre/highlights@0.5.1': {}
 
-  '@pierre/words@0.2.2(@pierre/highlights@0.5.1)':
+  '@pierre/words@0.3.0(@pierre/highlights@0.5.1)':
     optionalDependencies:
       '@pierre/highlights': 0.5.1
 
@@ -2842,6 +2852,8 @@ snapshots:
   path-key@3.1.1: {}
 
   pathe@2.0.3: {}
+
+  pele@1.13.0: {}
 
   picocolors@1.1.1: {}
 
