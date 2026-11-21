@@ -49,7 +49,7 @@
 		{#if isCollapsed}
 			<CodeBlockOverflow
 				bind:collapsed={isCollapsed}
-				class="scroll-fade scrollbar-hidden max-h-[500px] overflow-auto data-[collapsed=true]:overflow-y-hidden"
+				class="scrollbar-hidden max-h-[500px] scroll-fade overflow-auto data-[collapsed=true]:overflow-y-hidden"
 			>
 				<Root class="min-h-50 rounded-none border-0 dark:bg-transparent">
 					<HighlightedCode
@@ -62,7 +62,7 @@
 				</Root>
 			</CodeBlockOverflow>
 		{:else if faded}
-			<Root class="scroll-fade scrollbar-hidden h-auto rounded-none border-0 bg-background">
+			<Root class="scrollbar-hidden h-auto scroll-fade rounded-none border-0 bg-background">
 				<HighlightedCode
 					code={consumerCode}
 					lang={code.lang}
@@ -72,7 +72,7 @@
 				/>
 			</Root>
 		{:else}
-			<div class="scroll-fade scrollbar-hidden max-h-[600px] overflow-x-hidden overflow-y-auto">
+			<div class="scrollbar-hidden max-h-[600px] scroll-fade overflow-x-hidden overflow-y-auto">
 				<Root class="h-auto rounded-none border-0 bg-background">
 					<HighlightedCode
 						code={consumerCode}
