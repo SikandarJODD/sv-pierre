@@ -87,7 +87,7 @@ ${'</' + 'script>'}
 	}}
 />
 
-<main class="typeset typeset-docs mx-auto max-w-[42rem] min-w-0 px-5 py-12 sm:py-20">
+<main class="typeset typeset-docs mx-auto max-w-[46rem] min-w-0 px-5 py-12 sm:py-20">
 	<header>
 		<h1 class="mt-0 text-[2.125rem] leading-[1.1] sm:text-[2.3rem]">{title}</h1>
 		<p class="max-w-[38rem] text-[1.05rem] leading-7 text-muted-foreground">
