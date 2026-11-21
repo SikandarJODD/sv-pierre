@@ -8,6 +8,16 @@ importers:
 
   .:
     dependencies:
+      '@pierre/highlights':
+        specifier: ^0.5.1
+        version: 0.5.1
+      '@pierre/words':
+        specifier: ^0.2.2
+        version: 0.2.2(@pierre/highlights@0.5.1)
+    devDependencies:
+      '@eslint/js':
+        specifier: ^10.0.1
+        version: 10.0.1(eslint@10.15.0(jiti@2.7.0))
       '@fontsource-variable/figtree':
         specifier: ^5.3.0
         version: 5.3.0
@@ -20,16 +30,6 @@ importers:
       '@fontsource-variable/shantell-sans':
         specifier: ^5.3.0
         version: 5.3.0
-      '@pierre/highlights':
-        specifier: ^0.5.1
-        version: 0.5.1
-      '@pierre/words':
-        specifier: ^0.2.2
-        version: 0.2.2(@pierre/highlights@0.5.1)
-    devDependencies:
-      '@eslint/js':
-        specifier: ^10.0.1
-        version: 10.0.1(eslint@10.15.0(jiti@2.7.0))
       '@internationalized/date':
         specifier: ^3.12.4
         version: 3.12.4
