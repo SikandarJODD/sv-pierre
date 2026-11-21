@@ -6,10 +6,12 @@
 	import * as Select from '#lib/components/ui/select/index.js';
 	import { Markdown, Svelte, Terminal, TypeScript } from '#lib/components/icons/index.js';
 	import { untrack } from 'svelte';
+	import { toConsumerExampleCode } from './to-consumer-example-code.js';
 
 	let { code }: { code: CodeBlockData[] } = $props();
 	let selectedFilename = $state(untrack(() => code[0]?.filename));
 	let selectedCode = $derived(code.find((item) => item.filename === selectedFilename) ?? code[0]);
+	const consumerCode = $derived(toConsumerExampleCode(selectedCode.filecode));
 </script>
 
 <div class="w-full overflow-hidden rounded-xl border">
@@ -54,7 +56,7 @@
 			size="icon-md"
 			variant="secondary"
 			class="shrink-0 text-muted-foreground"
-			value={selectedCode.filecode}
+			value={consumerCode}
 		/>
 	</div>
 
@@ -63,7 +65,7 @@
 	>
 		<Root class="h-full rounded-none border-0 dark:bg-transparent">
 			<HighlightedCode
-				code={selectedCode.filecode}
+				code={consumerCode}
 				lang={selectedCode.lang}
 				highlight={selectedCode.highlight}
 				hideLines={false}

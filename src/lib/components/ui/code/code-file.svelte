@@ -7,9 +7,11 @@
 	import HighlightedCode from './highlighted-code.svelte';
 	import CodeBlockOverflow from './code-block-overflow.svelte';
 	import type { CodeBlock as CodeBlockData } from './types.js';
+	import { toConsumerExampleCode } from './to-consumer-example-code.js';
 	import { TypeScript, Svelte, Terminal, Markdown } from '#lib/components/icons/index.js';
 
 	let { code }: { code: CodeBlockData } = $props();
+	const consumerCode = $derived(toConsumerExampleCode(code.filecode));
 </script>
 
 <div class="w-full">
@@ -32,14 +34,14 @@
 				<span class="text-sm font-normal">{code.filename}</span>
 			</Title>
 			<Actions>
-				<CopyButton value={code.filecode} />
+				<CopyButton value={consumerCode} />
 			</Actions>
 		</Header>
 
 		{#if code.isExpand}
 			<CodeBlockOverflow collapsed={true}>
 				<HighlightedCode
-					code={code.filecode}
+					code={consumerCode}
 					lang={code.lang}
 					highlight={code.highlight}
 					hideLines={false}
@@ -47,7 +49,7 @@
 			</CodeBlockOverflow>
 		{:else}
 			<HighlightedCode
-				code={code.filecode}
+				code={consumerCode}
 				lang={code.lang}
 				highlight={code.highlight}
 				hideLines={false}

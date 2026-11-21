@@ -5,8 +5,10 @@
 	import HighlightedCode from './highlighted-code.svelte';
 	import CodeBlockOverflow from './code-block-overflow.svelte';
 	import type { CodeBlock as CodeBlockData } from './types.js';
+	import { toConsumerExampleCode } from './to-consumer-example-code.js';
 
 	let { code }: { code: CodeBlockData } = $props();
+	const consumerCode = $derived(toConsumerExampleCode(code.filecode));
 </script>
 
 <div class="w-full">
@@ -15,13 +17,14 @@
 			<CodeBlockOverflow collapsed={true}>
 				<Root class="rounded-none border-0 bg-background">
 					<Actions class="[[data-slot=code-block]>&]:opacity-100">
-						<CopyButton value={code.filecode} variant="secondary" class="text-muted-foreground" />
+						<CopyButton value={consumerCode} variant="secondary" class="text-muted-foreground" />
 					</Actions>
 					<HighlightedCode
-						code={code.filecode}
+						code={consumerCode}
 						lang={code.lang}
 						highlight={code.highlight}
 						hideLines
+						class="scrollbar-hidden"
 					/>
 				</Root>
 			</CodeBlockOverflow>
@@ -31,18 +34,18 @@
 					class="[[data-slot=code-block]>&]:end-2 [[data-slot=code-block]>&]:top-2 [[data-slot=code-block]>&]:opacity-100"
 				>
 					<CopyButton
-						value={code.filecode}
+						value={consumerCode}
 						size="icon-md"
 						variant="secondary"
 						class="text-muted-foreground"
 					/>
 				</Actions>
 				<HighlightedCode
-					code={code.filecode}
+					code={consumerCode}
 					lang={code.lang}
 					highlight={code.highlight}
 					hideLines
-					class="bg-background"
+					class="scrollbar-hidden bg-background"
 				/>
 			</Root>
 		{/if}

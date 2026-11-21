@@ -8,9 +8,11 @@
 	import { TypeScript, Svelte, Terminal, Markdown } from '#lib/components/icons/index.js';
 	import { untrack } from 'svelte';
 	import type { CodeBlock as CodeBlockData } from './types.js';
+	import { toConsumerExampleCode } from './to-consumer-example-code.js';
 
 	let { code, faded = false }: { code: CodeBlockData; faded?: boolean } = $props();
 	let isCollapsed = $state(untrack(() => code.isExpand ?? false));
+	const consumerCode = $derived(toConsumerExampleCode(code.filecode));
 </script>
 
 <Frame.Root class="w-full rounded-xl p-0.5">
@@ -39,7 +41,7 @@
 					{isCollapsed ? 'Expand' : 'Collapse'}
 				</Button>
 			{/if}
-			<CopyButton value={code.filecode} size="icon-sm" class="text-muted-foreground" />
+			<CopyButton value={consumerCode} size="icon-sm" class="text-muted-foreground" />
 		</div>
 	</Frame.Header>
 
@@ -47,35 +49,37 @@
 		{#if isCollapsed}
 			<CodeBlockOverflow
 				bind:collapsed={isCollapsed}
-				class="max-h-[500px] overflow-auto data-[collapsed=true]:overflow-y-hidden"
+				class="scroll-fade scrollbar-hidden max-h-[500px] overflow-auto data-[collapsed=true]:overflow-y-hidden"
 			>
 				<Root class="min-h-50 rounded-none border-0 dark:bg-transparent">
 					<HighlightedCode
-						code={code.filecode}
+						code={consumerCode}
 						lang={code.lang}
 						highlight={code.highlight}
 						hideLines={code.hideLines}
+						class="scrollbar-hidden"
 					/>
 				</Root>
 			</CodeBlockOverflow>
 		{:else if faded}
-			<Root class="h-auto scroll-fade rounded-none border-0 bg-background">
+			<Root class="scroll-fade scrollbar-hidden h-auto rounded-none border-0 bg-background">
 				<HighlightedCode
-					code={code.filecode}
+					code={consumerCode}
 					lang={code.lang}
 					highlight={code.highlight}
 					hideLines={code.hideLines}
+					class="scrollbar-hidden"
 				/>
 			</Root>
 		{:else}
-			<div class="no-scrollbar max-h-[600px] overflow-x-hidden overflow-y-auto">
+			<div class="scroll-fade scrollbar-hidden max-h-[600px] overflow-x-hidden overflow-y-auto">
 				<Root class="h-auto rounded-none border-0 bg-background">
 					<HighlightedCode
-						code={code.filecode}
+						code={consumerCode}
 						lang={code.lang}
 						highlight={code.highlight}
 						hideLines={code.hideLines}
-						class="bg-background"
+						class="scrollbar-hidden bg-background"
 					/>
 				</Root>
 			</div>
