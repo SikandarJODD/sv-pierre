@@ -124,7 +124,7 @@ Install Pele with \`pnpm add pele\`, then register the renderer.
 
 ## Credits
 
-Built by [Bhide Svelte](https://bhide.dev) on [Pierre Words](https://github.com/pierrecomputer/pierre/tree/main/packages/words) and [Pierre Highlights](https://github.com/pierrecomputer/pierre/tree/main/packages/highlights). This project is not maintained or endorsed by Pierre.
+Built by [Bhide Svelte](https://bhide.dev) on [Pierre Words](https://diffs.com/words) and [Pierre Highlights](https://diffs.com/highlights). This project is not maintained or endorsed by Pierre.
 
 ## License
 
