@@ -18,10 +18,11 @@
 	import svelteIslandExampleCode from '#lib/components/examples/svelte-island-example.svelte?raw';
 	import { CodeFrame } from '#lib/components/ui/code/index.js';
 	import { FaviconLink } from '#lib/components/ui/favicon-link/index.js';
-	// import { Kbd } from '#lib/components/ui/kbd/index.js';
+	import { Kbd } from '#lib/components/ui/kbd/index.js';
 	import { PMCommand } from '#lib/components/ui/pm-command/index.js';
 	import { PreviewComponent } from '#lib/components/ui/preview-component/index.js';
 	import { JsonLd, MetaTags } from 'svelte-meta-tags';
+	import { resolve } from '$app/paths';
 
 	const title = 'Pierre Words for Svelte';
 	const description =
@@ -334,12 +335,17 @@ ${'</' + 'script>'}
 
 	<footer data-not-typeset class="mt-12 border-t border-border pt-6 text-sm text-muted-foreground">
 		<div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-			<p>
-				Built by
-				<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://bhide.dev">
-					Bhide Svelte
-				</FaviconLink>
-			</p>
+			<div class="flex flex-col gap-2">
+				<p>
+					Built by
+					<FaviconLink class="mx-0.5 no-underline hover:no-underline" href="https://bhide.dev">
+						Bhide Svelte
+					</FaviconLink>
+				</p>
+				<p class="text-xs">
+					Press <Kbd class="mx-0.5 text-[10px]!">D</Kbd> to switch theme.
+				</p>
+			</div>
 
 			<nav aria-label="Project links" class="flex flex-wrap items-center gap-x-4 gap-y-2">
 				<FaviconLink
@@ -361,6 +367,12 @@ ${'</' + 'script>'}
 				>
 					GitHub
 				</FaviconLink>
+				<a
+					class="text-foreground no-underline transition-[color] duration-150 ease-out hover:text-foreground/70 hover:no-underline"
+					href={resolve('/llms.txt')}
+				>
+					llms.txt
+				</a>
 			</nav>
 		</div>
 	</footer>
